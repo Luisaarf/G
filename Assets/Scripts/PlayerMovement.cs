@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float attackCooldown;
+    [SerializeField] private Transform firePoint;
+     [SerializeField] private GameObject balloon;
     [SerializeField] private float cooldownTimer = Mathf.Infinity;
 
     Vector3 touchPosition;
@@ -23,6 +25,8 @@ public class PlayerMovement : MonoBehaviour
     void Attack()
     {
         Debug.Log("Attack");
+
+        Instantiate(balloon, firePoint.position, firePoint.rotation);
         cooldownTimer = 0;
     }
 
@@ -32,7 +36,6 @@ public class PlayerMovement : MonoBehaviour
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
-            Debug.Log(touch.tapCount + " taps");
             if(touch.tapCount == 1)
             {
                 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
@@ -42,11 +45,14 @@ public class PlayerMovement : MonoBehaviour
             }
             if(touch.tapCount == 2 && cooldownTimer > attackCooldown)
             {
+                //&& cooldownTimer > attackCooldown
                 Debug.Log("2 Tap");
                 Attack();
-                cooldownTimer += attackCooldown;
             }
+
         }
+        
+        cooldownTimer += Time.deltaTime;
 
     }
 }

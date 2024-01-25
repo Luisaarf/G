@@ -8,7 +8,7 @@ public class MinigameManager : MonoBehaviour
     [SerializeField] private GameObject[] minigames;
 
     //variable to set the difficulty
-    int difficulty;
+    //int difficulty;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +17,7 @@ public class MinigameManager : MonoBehaviour
             minigames[i].SetActive(false);
         }
 
-        difficulty = 0;
+        //difficulty = 0;
     }
 
     // Update is called once per frame
