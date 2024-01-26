@@ -438,8 +438,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4662fbcd64120d4f9acc285207169d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeRemaining: 60
+  timeRemaining: 10
   timerSlider: {fileID: 1883932810}
+  minigameManager: {fileID: 1735478193}
   timerIsRunning: 0
 --- !u!1 &820583618
 GameObject:
@@ -1010,6 +1011,10 @@ MonoBehaviour:
   - {fileID: 962115605}
   - {fileID: 1311176886}
   - {fileID: 1511097026}
+  timer: {fileID: 782987273}
+  firstMinigameTimer: 50
+  secondMinigameTimer: 30
+  thirdMinigameTimer: 10
 --- !u!4 &1735478194
 Transform:
   m_ObjectHideFlags: 0

@@ -7,6 +7,8 @@ public class Timer : MonoBehaviour
 {
     [SerializeField] private float timeRemaining;
     [SerializeField] private Slider timerSlider;
+
+    [SerializeField] private MinigameManager minigameManager;
     public bool timerIsRunning = false;
 
     private void Start()
@@ -18,6 +20,14 @@ public class Timer : MonoBehaviour
     public float getTimer()
     {
         return timeRemaining;
+    }
+
+    public void setTimer(float time)
+    {
+        timeRemaining = time;
+        timerSlider.value = timeRemaining;
+        timerSlider.maxValue = timeRemaining;
+        timerIsRunning = true;
     }
 
     void Update()
@@ -37,6 +47,9 @@ public class Timer : MonoBehaviour
 
 
             timerSlider.value = timeRemaining;
+        }
+        else {
+            minigameManager.ChangeMinigame();
         }
     }
 }

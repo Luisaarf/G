@@ -13,7 +13,7 @@ public class CreateNpc : MonoBehaviour
     void InstantiateNpc()
     {
 
-        Instantiate(adultNpc, transform.position, transform.rotation);
+        Instantiate(adultNpc, transform.position, transform.rotation, this.transform);
         cooldownTimer = 0;
     }
 
