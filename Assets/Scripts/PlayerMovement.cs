@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float attackCooldown;
     [SerializeField] private Transform firePoint;
-     [SerializeField] private GameObject balloon;
+    [SerializeField] private GameObject balloon;
     [SerializeField] private float cooldownTimer = Mathf.Infinity;
 
     Vector3 touchPosition;
@@ -24,8 +24,6 @@ public class PlayerMovement : MonoBehaviour
 
     void Attack()
     {
-        Debug.Log("Attack");
-
         Instantiate(balloon, firePoint.position, firePoint.rotation);
         cooldownTimer = 0;
     }

@@ -6,25 +6,23 @@ public class Projectile : MonoBehaviour
 {
     [SerializeField] private float speed;
     [SerializeField] private bool hit;
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
+    
     // Update is called once per frame
     void Update()
     {
         if (hit) return; 
         float movementSpeed = speed * Time.deltaTime;
-        transform.Translate(movementSpeed, 0, 0);
+        transform.Translate(0, movementSpeed, 0);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        Debug.Log("Projectile hit something");
+        if (collision.gameObject.CompareTag("npc"))
         {
             hit = true;
             Destroy(gameObject);
+            collision.gameObject.GetComponent<Npc>().Die();
         }
     }
 }
