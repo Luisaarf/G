@@ -688,6 +688,7 @@ Transform:
   - {fileID: 2084579936}
   - {fileID: 861489117}
   - {fileID: 992283031}
+  - {fileID: 1559101786}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &992283030
@@ -701,7 +702,7 @@ GameObject:
   - component: {fileID: 992283031}
   - component: {fileID: 992283032}
   m_Layer: 0
-  m_Name: InstanceNpcs
+  m_Name: InstanceLeftNpcs
   m_TagString: Untagged
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -737,6 +738,7 @@ MonoBehaviour:
   npcCreationCooldown: 4
   adultNpc: {fileID: 1596984396383412891, guid: d980dcfb37c4dfa449f21bdeffec998a, type: 3}
   cooldownTimer: Infinity
+  isLeft: 1
 --- !u!1 &1311176886
 GameObject:
   m_ObjectHideFlags: 0
@@ -978,6 +980,54 @@ Transform:
   - {fileID: 1767070816}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1559101785
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1559101786}
+  - component: {fileID: 1559101787}
+  m_Layer: 0
+  m_Name: InstanceRightNpcs
+  m_TagString: Untagged
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1559101786
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1559101785}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -260.98, y: -156.86, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 962115606}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1559101787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1559101785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e6192531aba03f4f8246ae2d6126237, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcCreationCooldown: 4
+  adultNpc: {fileID: 1596984396383412891, guid: d980dcfb37c4dfa449f21bdeffec998a, type: 3}
+  cooldownTimer: Infinity
+  isLeft: 0
 --- !u!1 &1735478192
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,12 +9,17 @@ public class CreateNpc : MonoBehaviour
     [SerializeField] private float npcCreationCooldown;
     [SerializeField] private GameObject adultNpc;
     [SerializeField] private float cooldownTimer = Mathf.Infinity;
+    [SerializeField] private bool isLeft;
 
     void InstantiateNpc()
     {
 
         Instantiate(adultNpc, transform.position, transform.rotation, this.transform);
         cooldownTimer = 0;
+    }
+
+    public bool GetIsLeft(){
+       return isLeft;
     }
 
     // Update is called once per frame

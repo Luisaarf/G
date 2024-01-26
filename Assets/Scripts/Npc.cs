@@ -15,7 +15,13 @@ public class Npc : MonoBehaviour
     void Update()
     {
         float movementSpeed = speed * Time.deltaTime;
-        transform.Translate(movementSpeed, 0 , 0);
-        transform.position += new Vector3(movementSpeed, 0, 0);
+        if(this.gameObject.GetComponentInParent<CreateNpc>().GetIsLeft() ){
+            transform.Translate(movementSpeed, 0 , 0);
+            transform.position += new Vector3(movementSpeed, 0, 0);
+        }
+        if(!(this.gameObject.GetComponentInParent<CreateNpc>().GetIsLeft()) ){
+            transform.Translate(-(movementSpeed), 0 , 0);
+            transform.position += new Vector3(-(movementSpeed), 0, 0);
+        }
     }
 }
