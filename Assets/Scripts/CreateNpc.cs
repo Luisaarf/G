@@ -10,6 +10,7 @@ public class CreateNpc : MonoBehaviour
     [SerializeField] private GameObject adultNpc;
     [SerializeField] private float cooldownTimer = Mathf.Infinity;
     [SerializeField] private bool isLeft;
+    [SerializeField] private bool biggerNpc;
 
     void InstantiateNpc()
     {
@@ -20,6 +21,10 @@ public class CreateNpc : MonoBehaviour
 
     public bool GetIsLeft(){
        return isLeft;
+    }
+
+    public bool GetBiggerNpc(){
+       return biggerNpc;
     }
 
     // Update is called once per frame

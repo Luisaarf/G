@@ -20,12 +20,13 @@ public class MinigameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 1; i < minigames.Length; i++)
-        {
-            minigames[i].SetActive(false);
-        }
+      minigames[0].SetActive(true);
+      for (int i = 1; i < minigames.Length; i++)
+      {
+          minigames[i].SetActive(false);
+      }
 
-        difficulty = 0;
+      difficulty = 0;
     }
 
     public void ChangeMinigame(){

@@ -6,13 +6,16 @@ public class Projectile : MonoBehaviour
 {
     [SerializeField] private float speed;
     [SerializeField] private bool hit;
+    [SerializeField] private bool itMoves;
     
     // Update is called once per frame
     void Update()
     {
         if (hit) return; 
-        float movementSpeed = speed * Time.deltaTime;
-        transform.Translate(0, movementSpeed, 0);
+        if (itMoves){ 
+            float movementSpeed = speed * Time.deltaTime;
+            transform.Translate(0, movementSpeed, 0);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

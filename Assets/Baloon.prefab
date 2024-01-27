@@ -164,6 +164,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   hit: 0
+  itMoves: 1
 --- !u!114 &3019733944040422919
 MonoBehaviour:
   m_ObjectHideFlags: 0
