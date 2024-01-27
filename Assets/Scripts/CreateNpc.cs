@@ -11,12 +11,17 @@ public class CreateNpc : MonoBehaviour
     [SerializeField] private float cooldownTimer = Mathf.Infinity;
     [SerializeField] private bool isLeft;
     [SerializeField] private bool biggerNpc;
+     [SerializeField] private Sprite[] characterSprites;
 
     void InstantiateNpc()
     {
 
         Instantiate(adultNpc, transform.position, transform.rotation, this.transform);
         cooldownTimer = 0;
+    }
+
+    public Sprite getRandomSprite(){
+        return characterSprites[Random.Range(0, characterSprites.Length)];
     }
 
     public bool GetIsLeft(){

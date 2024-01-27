@@ -7,6 +7,7 @@ public class Npc : MonoBehaviour
 
     void Start()
     {
+       this.GetComponent<SpriteRenderer>().sprite =  this.gameObject.GetComponentInParent<CreateNpc>().getRandomSprite();
         if(this.gameObject.GetComponentInParent<CreateNpc>().GetBiggerNpc()){
             transform.localScale += new Vector3(0.8f, 0.8f, 0.8f);
         }
@@ -29,6 +30,7 @@ public class Npc : MonoBehaviour
         if(!(this.gameObject.GetComponentInParent<CreateNpc>().GetIsLeft())){
             transform.Translate(-(movementSpeed), 0 , 0);
             transform.position += new Vector3(-(movementSpeed), 0, 0);
+            this.GetComponent<SpriteRenderer>().flipX = true;
         }
     }
 }
