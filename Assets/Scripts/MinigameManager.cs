@@ -21,6 +21,7 @@ public class MinigameManager : MonoBehaviour
     void Start()
     {
       minigames[0].SetActive(true);
+      SetTimerMinigame();
       for (int i = 1; i < minigames.Length; i++)
       {
           minigames[i].SetActive(false);

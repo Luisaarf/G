@@ -43,8 +43,6 @@ public class PlayerMovement : MonoBehaviour
             }
             if(touch.tapCount == 2 && cooldownTimer > attackCooldown)
             {
-                //&& cooldownTimer > attackCooldown
-                Debug.Log("2 Tap");
                 Attack();
             }
 

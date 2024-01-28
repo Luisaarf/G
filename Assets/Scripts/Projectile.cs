@@ -20,7 +20,6 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Projectile hit something");
         if (collision.gameObject.CompareTag("npc"))
         {
             hit = true;
