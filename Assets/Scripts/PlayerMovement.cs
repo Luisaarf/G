@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform firePoint;
     [SerializeField] private GameObject balloon;
     [SerializeField] private float cooldownTimer = Mathf.Infinity;
+    [SerializeField] private Sprite hienaWaiting;
+    [SerializeField] private Sprite hiena;
 
     Vector3 touchPosition;
     [SerializeField] float moveSpeed = 0.1f;
@@ -28,6 +30,11 @@ public class PlayerMovement : MonoBehaviour
         cooldownTimer = 0;
     }
 
+    public void backToNormal()
+    {
+        this.GetComponent<SpriteRenderer>().sprite = hiena;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -43,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
             }
             if(touch.tapCount == 2 && cooldownTimer > attackCooldown)
             {
+                this.GetComponent<SpriteRenderer>().sprite = hienaWaiting;
                 Attack();
             }
 
