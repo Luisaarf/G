@@ -8,9 +8,11 @@ public class Projectile : MonoBehaviour
     [SerializeField] private bool hit;
     [SerializeField] private bool itMoves;
     [SerializeField] ScoreManager scoreManager;
+    [SerializeField] PlayerMovement playerMovement;
 
     void Start()
     {
+        playerMovement = GameObject.Find("player").GetComponent<PlayerMovement>();
         scoreManager = GameObject.Find("Likes").GetComponent<ScoreManager>();
     }
     
@@ -27,7 +29,6 @@ public class Projectile : MonoBehaviour
     void OnBecameInvisible()
     {
         Destroy(gameObject);
-        GameObject.Find("player").GetComponent<PlayerMovement>().backToNormal();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -36,9 +37,12 @@ public class Projectile : MonoBehaviour
         {
             hit = true;
             Destroy(gameObject);
-            GameObject.Find("player").GetComponent<PlayerMovement>().backToNormal();
+            playerMovement.backToNormal();
             collision.gameObject.GetComponent<Npc>().getAngry();
             scoreManager.AddScore(100);
+        }
+        if(collision.gameObject.CompareTag("outOfBounds")){
+            playerMovement.Sad();
         }
     }
 }
