@@ -11,7 +11,8 @@ public class CreateNpc : MonoBehaviour
     [SerializeField] private float cooldownTimer = Mathf.Infinity;
     [SerializeField] private bool isLeft;
     [SerializeField] private bool biggerNpc;
-     [SerializeField] private Sprite[] characterSprites;
+    [SerializeField] private Sprite[] characterSprites;
+    [SerializeField] private Sprite[] oppositeCharacterSprites;
 
     void InstantiateNpc()
     {
@@ -20,8 +21,12 @@ public class CreateNpc : MonoBehaviour
         cooldownTimer = 0;
     }
 
-    public Sprite getRandomSprite(){
-        return characterSprites[Random.Range(0, characterSprites.Length)];
+    public Sprite[] getRandomSprite(){
+        int random = Random.Range(0, characterSprites.Length);
+        Sprite[] charArray = new Sprite[2];
+        charArray[0] = characterSprites[random];
+        charArray[1] = oppositeCharacterSprites[random];
+        return charArray ;
     }
 
     public bool GetIsLeft(){

@@ -25,7 +25,7 @@ public class Projectile : MonoBehaviour
         {
             hit = true;
             Destroy(gameObject);
-            collision.gameObject.GetComponent<Npc>().Die();
+            collision.gameObject.GetComponent<Npc>().getAngry();
         }
     }
 }
