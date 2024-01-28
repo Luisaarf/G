@@ -7,6 +7,7 @@ using TMPro;
 public class ScoreManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private TextMeshProUGUI scoreTextBackground;
     [SerializeField] private float score;	
 
     [SerializeField] private float scoreToAdd;
@@ -25,24 +26,32 @@ public class ScoreManager : MonoBehaviour
     public void SubtractScore(float points){
         score -= points;
         scoreText.text = score.ToString();
+        scoreTextBackground.text = score.ToString();
     }
 
     public void ResetScore(){
         scoreToAdd = 0;
         score = 0;
         scoreText.text = score.ToString();
+        scoreTextBackground.text = score.ToString();
     }
 
     public float GetScore(){
         return score;
     }
 
+    public void changeBackgroundScore(){
+        scoreTextBackground.text = scoreText.text;
+    }
+
     void Update()
     {
         if (scoreToAdd > 0){
             scoreText.text = ((int)score + 1).ToString();
+            changeBackgroundScore();
             scoreToAdd -= scorePerSecond * Time.deltaTime;
             score += scorePerSecond * Time.deltaTime;
         }
+
     }
 }

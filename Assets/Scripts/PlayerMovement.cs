@@ -68,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
                 position = Vector2.Lerp(transform.position, touchPosition, moveSpeed);
-                position.y = 1.91f;
+                position.y = 1.6f;
                 rb.MovePosition(position);
             }
             if(touch.tapCount == 2 && cooldownTimer > attackCooldown)

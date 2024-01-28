@@ -16,7 +16,7 @@ public class MinigameManager : MonoBehaviour
     int currentMinigame = 0;
 
     //variable to set the difficulty
-    int difficulty;
+    private float difficulty;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,21 +27,39 @@ public class MinigameManager : MonoBehaviour
           minigames[i].SetActive(false);
       }
 
-      difficulty = 0;
+      difficulty = 1;
+    }
+
+    public float getDifficulty(){
+      return difficulty;
     }
 
     public void ChangeMinigame(){
         minigames[currentMinigame].SetActive(false);
-        currentMinigame++;
         difficulty++;
-        if (currentMinigame >= minigames.Length)
+        if (difficulty > 3)
         {
-            currentMinigame = 0;
+          //condição de vitória
+          UnityEngine.SceneManagement.SceneManager.LoadScene("End");
         }
         minigames[currentMinigame].SetActive(true);
         SetTimerMinigame();
         Debug.Log("Difficulty: " + difficulty);
     }
+
+
+    // public void ChangeMinigame(){
+    //     minigames[currentMinigame].SetActive(false);
+    //     currentMinigame++;
+    //     difficulty++;
+    //     if (currentMinigame >= minigames.Length)
+    //     {
+    //         currentMinigame = 0;
+    //     }
+    //     minigames[currentMinigame].SetActive(true);
+    //     SetTimerMinigame();
+    //     Debug.Log("Difficulty: " + difficulty);
+    // }
 
     public void SetTimerMinigame(){
         if (currentMinigame == 0)
@@ -58,9 +76,4 @@ public class MinigameManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
