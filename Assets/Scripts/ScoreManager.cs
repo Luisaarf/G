@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class ScoreManager : MonoBehaviour
@@ -15,12 +16,21 @@ public class ScoreManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ResetScore();
+        if(SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            ResetScore();
+        }
+    }
+
+    private void UpdateText(){
+        if(scoreTextBackground != null){
+            scoreText.text = score.ToString();
+            scoreTextBackground.text = score.ToString();
+        }
     }
 
     public void AddScore(float points){
         scoreToAdd += points;
-        //scoreText.text = score.ToString();
     }
 
     public void SubtractScore(float points){
@@ -32,8 +42,7 @@ public class ScoreManager : MonoBehaviour
     public void ResetScore(){
         scoreToAdd = 0;
         score = 0;
-        scoreText.text = score.ToString();
-        scoreTextBackground.text = score.ToString();
+        UpdateText();
     }
 
     public float GetScore(){
@@ -44,10 +53,14 @@ public class ScoreManager : MonoBehaviour
         return scoreToAdd;
     }
 
+    public void SetScoreToAdd(float newScoreToAdd){
+        scoreToAdd = newScoreToAdd;
+        UpdateText();
+    }
+
     public void setScore(float newScore){
         score = newScore;
-        scoreText.text = score.ToString();
-        scoreTextBackground.text = scoreText.text;
+        UpdateText();
     }
 
     public void changeBackgroundScore(){
@@ -57,8 +70,10 @@ public class ScoreManager : MonoBehaviour
     void Update()
     {
         if (scoreToAdd > 0){
-            scoreText.text = ((int)score + 1).ToString();
-            changeBackgroundScore();
+            if(scoreTextBackground != null){
+                scoreText.text = ((int)score + 1).ToString();
+                changeBackgroundScore();
+            }
             scoreToAdd -= scorePerSecond * Time.deltaTime;
             score += scorePerSecond * Time.deltaTime;
         }

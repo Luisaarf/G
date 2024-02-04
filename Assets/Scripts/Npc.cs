@@ -41,6 +41,7 @@ public class Npc : MonoBehaviour
 
     }
 
+
     IEnumerator ShowAndHide( GameObject go, GameObject after, float delay )
     {
         go.SetActive(true);

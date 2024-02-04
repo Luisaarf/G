@@ -291,7 +291,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 843.49994, y: 494}
+  m_AnchoredPosition: {x: 843.49994, y: 489.7}
   m_SizeDelta: {x: 178.4975, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &219557878
@@ -377,7 +377,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0.00008391439, y: 1.8589458, z: 0, w: 0.7435646}
+  m_margin: {x: 0.00008391439, y: 3.7408676, z: 0, w: 2.1550064}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -879,10 +879,9 @@ GameObject:
   - component: {fileID: 805518335}
   - component: {fileID: 805518337}
   - component: {fileID: 805518336}
-  - component: {fileID: 805518338}
   m_Layer: 5
   m_Name: FinalScore
-  m_TagString: Untagged
+  m_TagString: score
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -939,18 +938,6 @@ MonoBehaviour:
   score: 0
   scoreToAdd: 0
   scorePerSecond: 50
---- !u!114 &805518338
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 805518334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 935fc1010f343eb4a9b2b82f6c1c6a5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1182584476
 GameObject:
   m_ObjectHideFlags: 0
@@ -1033,8 +1020,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playBt: {fileID: 0}
+  exitBt: {fileID: 0}
   creditsBt: {fileID: 0}
-  backMenuBt: {fileID: 0}
+  backMenuBt: {fileID: 1988741720}
   creditsPanel: {fileID: 0}
 --- !u!1 &1228811588
 GameObject:
@@ -1326,7 +1314,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 843.5, y: 503.2}
+  m_AnchoredPosition: {x: 843.5, y: 508.19998}
   m_SizeDelta: {x: 178.4975, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1645338213
@@ -1352,7 +1340,7 @@ MonoBehaviour:
   m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 91949245467ff4e4688611c7574b23b8, type: 2}
-  m_sharedMaterial: {fileID: -3305947695337685991, guid: 91949245467ff4e4688611c7574b23b8, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 0c3489ee7e7b5ce42b18076fb219c2e6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1412,7 +1400,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -0.00018310241, y: 3.2374973, z: 0, w: 1.9425087}
+  m_margin: {x: -0.00018310241, y: 8.412788, z: 0, w: -1.9781666}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

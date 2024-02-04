@@ -6,6 +6,7 @@ TagManager:
   tags:
   - npc
   - outOfBounds
+  - score
   layers:
   - Default
   - TransparentFX

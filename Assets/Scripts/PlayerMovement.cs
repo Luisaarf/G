@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float cooldownTimer = Mathf.Infinity;
     [SerializeField] private Sprite hienaSad;
     [SerializeField] private Sprite hiena;
+    [SerializeField] private Slider cooldownSlider;
+
+    [SerializeField] private bool startedTheAttack = false;
     private bool sadState = false;
 
     float sadTime = 2;
@@ -24,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        cooldownSlider.value = attackCooldown;
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -78,11 +83,22 @@ public class PlayerMovement : MonoBehaviour
             {
                 //touch.tapCount == 2 && cooldownTimer > attackCooldown ||
                 Attack();
+                startedTheAttack = true;
+                cooldownSlider.value = 0;
             }
 
         }
+
+        if (startedTheAttack && cooldownTimer < attackCooldown)
+        {
+            cooldownSlider.value += Time.deltaTime;
+
+        } else{
+            startedTheAttack = false;
+        }
         
         cooldownTimer += Time.deltaTime;
+        
 
     }
 }
