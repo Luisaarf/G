@@ -59,7 +59,7 @@ public class ScoreManager : MonoBehaviour
     }
 
     public void setScore(float newScore){
-        score = newScore;
+        score = newScore ;
         UpdateText();
     }
 

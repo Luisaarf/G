@@ -11,9 +11,11 @@ public class MenuBt : MonoBehaviour
 
     [SerializeField] private Button backMenuBt;
     [SerializeField] private GameObject creditsPanel;
+    private AudioSource buttonAudio;
 
     void Start()
     {
+        buttonAudio = GetComponent<AudioSource>();
         playBt.gameObject.SetActive(true);
         exitBt.gameObject.SetActive(true);
         creditsBt.gameObject.SetActive(true);
@@ -21,15 +23,23 @@ public class MenuBt : MonoBehaviour
     }
 
     public void Play(){
+        buttonAudio.Play();
+        StartCoroutine(WaitForSound(buttonAudio.clip));
         UnityEngine.SceneManagement.SceneManager.LoadScene("SampleScene");
     }
 
+    public IEnumerator WaitForSound(AudioClip Sound){
+        yield return new WaitUntil(() => buttonAudio.isPlaying == false);
+    }
+
     public void Exit(){
+        buttonAudio.Play();
+        StartCoroutine(WaitForSound(buttonAudio.clip));
         Application.Quit();
     }
 
     public void Credits(){
-        Debug. Log(creditsPanel.activeSelf);
+        buttonAudio.Play();
         if(creditsPanel.activeSelf){
             creditsPanel.SetActive(false);
             playBt.gameObject.SetActive(true);
@@ -46,6 +56,8 @@ public class MenuBt : MonoBehaviour
     }
 
     public void BackMenu(){
+        buttonAudio.Play();
+        StartCoroutine(WaitForSound(buttonAudio.clip));
         UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
     }
 }
