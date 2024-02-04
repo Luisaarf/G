@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
 
     float sadTime = 2;
 
-    Vector3 touchPosition;
+    //Vector3 touchPosition;
     [SerializeField] float moveSpeed = 0.1f;
     Rigidbody2D rb;
     Vector2 position = new Vector2(0f, 0f);
@@ -61,18 +61,22 @@ public class PlayerMovement : MonoBehaviour
                 backToNormal();
             }
         }
-        if (Input.touchCount > 0)
+        if ( Input.GetMouseButton(0) || Input.GetMouseButtonDown(1))
         {
-            Touch touch = Input.GetTouch(0);
-            if(touch.tapCount == 1)
+            //Input.touchCount > 0 ||
+            //Touch touch = Input.GetTouch(0);
+            if( Input.GetMouseButton(0))  //touch.tapCount == 1 ||
             {
-                touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
+                //touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
+                Vector3 touchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                //Camera.main.ScreenToWorldPoint(InputGetMouseButton.position)
                 position = Vector2.Lerp(transform.position, touchPosition, moveSpeed);
                 position.y = 1.6f;
                 rb.MovePosition(position);
             }
-            if(touch.tapCount == 2 && cooldownTimer > attackCooldown)
+            if( Input.GetMouseButtonDown(1) && cooldownTimer > attackCooldown)
             {
+                //touch.tapCount == 2 && cooldownTimer > attackCooldown ||
                 Attack();
             }
 

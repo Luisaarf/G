@@ -4,14 +4,11 @@ using UnityEngine;
 
 public class MinigameManager : MonoBehaviour
 {
-    // This is an array with all the minigames in the game.
-    [SerializeField] private GameObject[] minigames;
+    [SerializeField] private GameObject thegame;
 
     [SerializeField] private Timer timer;
 
     [SerializeField] private float firstMinigameTimer;
-    [SerializeField] private float secondMinigameTimer;
-    [SerializeField] private float thirdMinigameTimer;
 
     int currentMinigame = 0;
 
@@ -20,13 +17,8 @@ public class MinigameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      minigames[0].SetActive(true);
+      thegame.SetActive(true);
       SetTimerMinigame();
-      for (int i = 1; i < minigames.Length; i++)
-      {
-          minigames[i].SetActive(false);
-      }
-
       difficulty = 1;
     }
 
@@ -35,14 +27,14 @@ public class MinigameManager : MonoBehaviour
     }
 
     public void ChangeMinigame(){
-        minigames[currentMinigame].SetActive(false);
+        thegame.SetActive(false);
         difficulty++;
         if (difficulty > 3)
         {
           //condição de vitória
           UnityEngine.SceneManagement.SceneManager.LoadScene("End");
         }
-        minigames[currentMinigame].SetActive(true);
+        thegame.SetActive(true);
         SetTimerMinigame();
         Debug.Log("Difficulty: " + difficulty);
     }
@@ -65,14 +57,6 @@ public class MinigameManager : MonoBehaviour
         if (currentMinigame == 0)
         {
           timer.setTimer(firstMinigameTimer);
-        }
-        else if (currentMinigame == 1)
-        {
-          timer.setTimer(secondMinigameTimer);
-        }
-        else if (currentMinigame == 2)
-        {
-          timer.setTimer(thirdMinigameTimer);
         }
     }
 

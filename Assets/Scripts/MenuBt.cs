@@ -45,4 +45,8 @@ public class MenuBt : MonoBehaviour
         }
 
     }
+
+    public void BackMenu(){
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
+    }
 }

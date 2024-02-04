@@ -40,6 +40,16 @@ public class ScoreManager : MonoBehaviour
         return score;
     }
 
+    public float GetScoreToAdd(){
+        return scoreToAdd;
+    }
+
+    public void setScore(float newScore){
+        score = newScore;
+        scoreText.text = score.ToString();
+        scoreTextBackground.text = scoreText.text;
+    }
+
     public void changeBackgroundScore(){
         scoreTextBackground.text = scoreText.text;
     }

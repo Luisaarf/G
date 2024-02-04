@@ -34,10 +34,19 @@ public class Npc : MonoBehaviour
 
     public void getAngry(){
         this.GetComponent<SpriteRenderer>().sprite =  charSprites[1];
+        StartCoroutine( ShowAndHide(transform.GetChild(1).gameObject, transform.GetChild(2).gameObject, 1.0f) );
         hitNpcSound.Play();
         hitBaloonSound.Play();
         laughSound.Play();
 
+    }
+
+    IEnumerator ShowAndHide( GameObject go, GameObject after, float delay )
+    {
+        go.SetActive(true);
+        yield return new WaitForSeconds(delay);
+        go.SetActive(false);
+        after.SetActive(true);
     }
 
     // Update is called once per frame
@@ -47,6 +56,7 @@ public class Npc : MonoBehaviour
         if(this.gameObject.GetComponentInParent<CreateNpc>().GetIsLeft()){
             transform.Translate(movementSpeed, 0 , 0);
             transform.position += new Vector3(movementSpeed, 0, 0);
+            
         }
         if(!(this.gameObject.GetComponentInParent<CreateNpc>().GetIsLeft())){
             transform.Translate(-(movementSpeed), 0 , 0);
